@@ -10,6 +10,9 @@ app.set('views',  __dirname + '/views');
 
 webRoutes(app);
 
+///config static files
+app.use(express.static('public'))
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
   console.log("check env port: ", process.env.PORT);
