@@ -1,0 +1,24 @@
+{
+  "name": "nodejs-pro",
+  "version": "1.0.0",
+  "description": "nodejs express",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/truongtrong99/NodeJS_Express.git"
+  },
+  "keywords": [
+    "nodejs",
+    "express",
+    "mongodb"
+  ],
+  "author": "trong",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/truongtrong99/NodeJS_Express/issues"
+  },
+  "homepage": "https://github.com/truongtrong99/NodeJS_Express#readme"
+}
