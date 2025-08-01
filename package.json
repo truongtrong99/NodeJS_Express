@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/truongtrong99/NodeJS_Express/issues"
   },
-  "homepage": "https://github.com/truongtrong99/NodeJS_Express#readme"
+  "homepage": "https://github.com/truongtrong99/NodeJS_Express#readme",
+  "dependencies": {
+    "express": "5.0.1"
+  }
 }
