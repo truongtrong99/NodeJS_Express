@@ -1,7 +1,18 @@
 import getConnection from "../config/db";
 
-const handleCreateUser = (fullName: string, email: string, address: string) => {
-    console.log('User created successfully');
+const handleCreateUser = async (fullName: string, email: string, address: string) => {
+    const connection = await getConnection();
+   
+    try {
+        const [result, fields] = await connection.execute(
+            'INSERT INTO `users` (`name`, `email`, `address`) VALUES (?, ?, ?)',
+            [fullName, email, address]
+        );
+        return result;
+    } catch (error) {
+        console.error('Error creating user:', error);
+        return null;
+    }
 };
 
 const getAllUsers = async () => {
