@@ -11,30 +11,33 @@
     <!-- <img src="/images/hoidanit.png"> -->
     <div class="container my-4">
         <div class="d-flex justify-content-between align-items-center">
-            <h1>List User: <%= name %></h1>
+            <h1>List User</h1>
             <a href="/create-user" class="btn btn-warning">Create a new user</a>
         </div>
         <hr />
         <div class="table-responsive">
             <table class="table table-hover table-bordered">
-                <thead >
-                    <th>Id</th>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Address</th>
-                    <th>Action</th>
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Address</th>
+                        <th>Action</th>
+                    </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Alfreds Futterkiste</td>
-                        <td>Maria Anders</td>
-                        <td>Maria Anders</td>
-                        <td>Germany</td>
-                        <td>
-                            <button class="btn btn-danger">Delete</button>
-                        </td>
-                    </tr>
-                    
+                    <% users.forEach(function(user) { %>
+                        <tr>
+                            <td><%= user.id %></td>
+                            <td><%= user.name %></td>
+                            <td><%= user.email %></td>
+                            <td><%= user.address %></td>
+                            <td>
+                                <button class="btn btn-danger">Delete</button>
+                            </td>
+                        </tr>
+                    <% }) %>
                 </tbody>
             </table>
         </div>
