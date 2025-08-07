@@ -35,7 +35,7 @@ const getViewUser = async (req: Request, res: Response) => {
 
 const postUpdateUser = async (req: Request, res: Response) => {
     const { id, fullName, email, address } = req.body;
-    await handleUpdateUser(id, fullName, email, address);
+    const response = await handleUpdateUser(id, fullName, email, address);
     return res.redirect('/');
 }
 export { getHomePage, getCreateUserPage, postCreateUser, postDeleteUser, getViewUser, postUpdateUser }
