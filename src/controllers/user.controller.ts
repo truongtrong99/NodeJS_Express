@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { getAllUsers, handleCreateUser } from 'services/user.service';
+import { getAllUsers, handleCreateUser, handleDeleteUser } from 'services/user.service';
 
 const getHomePage = async (req: Request, res: Response) => {
     const users = await getAllUsers();
@@ -20,10 +20,9 @@ const postCreateUser = async (req: Request, res: Response) => {
 }
 
 const postDeleteUser = async (req: Request, res: Response) => {
-    const userId = req.params.id;
-    console.log('>>> Check delete user with id: ', userId);
-    // Here you would typically call a service to handle the deletion
-    // await handleDeleteUser(userId);
+    const {id} = req.params;
+    await handleDeleteUser(id);
     return res.redirect('/');
 }
+
 export { getHomePage, getCreateUserPage, postCreateUser, postDeleteUser }
