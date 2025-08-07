@@ -35,7 +35,7 @@
                             <td><%= user.address %></td>
                             <td>
                                 <div style="display: flex; gap: 10px;">
-                                    <form action="/handle-view-user/<%= user.id %>" method="POST">
+                                    <form action="/handle-view-user/<%= user.id %>" method="GET">
                                     <button class="btn btn-primary">View</button>
                                 </form>
                                 <form action="/handle-delete-user/<%= user.id %>" method="POST">

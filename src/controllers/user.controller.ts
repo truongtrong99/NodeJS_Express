@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { getAllUsers, handleCreateUser, handleDeleteUser } from 'services/user.service';
+import { getAllUsers, getUserById, handleCreateUser, handleDeleteUser } from 'services/user.service';
 
 const getHomePage = async (req: Request, res: Response) => {
     const users = await getAllUsers();
@@ -25,4 +25,11 @@ const postDeleteUser = async (req: Request, res: Response) => {
     return res.redirect('/');
 }
 
-export { getHomePage, getCreateUserPage, postCreateUser, postDeleteUser }
+const getViewUser = async (req: Request, res: Response) => {
+    const { id } = req.params;
+    // Here you would typically fetch the user details from the database
+    // For now, we will just send a placeholder response
+    const user = await getUserById(id);
+    res.render('view-user', { user: user, id: id });
+}
+export { getHomePage, getCreateUserPage, postCreateUser, postDeleteUser, getViewUser }

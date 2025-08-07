@@ -41,4 +41,19 @@ const handleDeleteUser = async (userId: string) => {
         return null;
     }
 }
-export { handleCreateUser, getAllUsers, handleDeleteUser };
+
+const getUserById = async (userId: string) => {
+    const connection = await getConnection();
+    try {
+        const [results, fields] = await connection.query(
+            'SELECT * FROM `users` WHERE `id` = ?',
+            [userId]
+        );
+        return results[0]; // Return the first user found
+    } catch (err) {
+        console.log(err);
+        return null;
+    }
+}
+
+export { handleCreateUser, getAllUsers, handleDeleteUser,getUserById };
