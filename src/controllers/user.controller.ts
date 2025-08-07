@@ -14,8 +14,8 @@ const getCreateUserPage = (req: Request, res: Response) => {
 
 const postCreateUser = async (req: Request, res: Response) => {
     const { fullName, email, address } = req.body;
-    console.log('>>> Check data: ', fullName, email, address);
-    await handleCreateUser(fullName, email, address);
+    const response = await handleCreateUser(fullName, email, address);
+
     return res.redirect('/');
 }
 
