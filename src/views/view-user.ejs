@@ -12,7 +12,8 @@
 <body>
     <div class="container mt-5">
         <h2>View Detail User id = <%= id %></h2>
-        <form action="/handle-update-user" method="post">
+        <form action="/handle-update-user" method="POST">
+            <input type="hidden" name="id" value="<%= user.id %>">
             <div class="mb-3">
                 <label class="form-label">Name:</label>
                 <input type="text" class="form-control" value="<%= user.name %>" name="fullName" placeholder="Enter your name">
