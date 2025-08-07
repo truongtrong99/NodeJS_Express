@@ -18,4 +18,12 @@ const postCreateUser = async (req: Request, res: Response) => {
     await handleCreateUser(fullName, email, address);
     return res.redirect('/');
 }
-export { getHomePage, getCreateUserPage, postCreateUser }
+
+const postDeleteUser = async (req: Request, res: Response) => {
+    const userId = req.params.id;
+    console.log('>>> Check delete user with id: ', userId);
+    // Here you would typically call a service to handle the deletion
+    // await handleDeleteUser(userId);
+    return res.redirect('/');
+}
+export { getHomePage, getCreateUserPage, postCreateUser, postDeleteUser }
