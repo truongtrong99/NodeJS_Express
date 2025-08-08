@@ -1,6 +1,6 @@
 import express, {Express} from 'express';
 import { getCreateUserPage, getHomePage, getViewUser, postCreateUser, postDeleteUser, postUpdateUser } from 'controllers/user.controller';
-import { getDashboardPage } from 'controllers/admin/dashboard.controller';
+import { getAdminUserPage, getDashboardPage } from 'controllers/admin/dashboard.controller';
 const router = express.Router()
 
 const webRoutes = (app: Express)=>{
@@ -13,6 +13,8 @@ const webRoutes = (app: Express)=>{
   
   //adim page
   router.get('/admin', getDashboardPage);
+  router.get('/admin/user', getAdminUserPage);
+
 
   router.get('/abc', (req, res) => {
     res.send('Hello World ABC!');
