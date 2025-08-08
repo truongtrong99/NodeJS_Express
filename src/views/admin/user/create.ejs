@@ -31,12 +31,30 @@
                                 <h5>Create New User</h5>
                                 <form action="/handle-create-user" method="post">
                                     <div class="mb-3">
-                                        <label class="form-label">Name:</label>
+                                        <label class="form-label">Full Name:</label>
                                         <input type="text" class="form-control" name="fullName" placeholder="Enter your name">
                                     </div>
                                     <div class="mb-3">
-                                        <label class="form-label">Email address:</label>
-                                        <input type="email" class="form-control" name="email" placeholder="name@example.com">
+                                        <label class="form-label">Email:</label>
+                                        <input type="username" class="form-control" name="email" placeholder="name@example.com">
+                                    </div>
+                                    <div class="row">
+                                        <div class="mb-3 col-6">
+                                            <label class="form-label">Phone:</label>
+                                            <input type="text" class="form-control" name="phone" placeholder="Enter your phone number">
+                                        </div>
+                                        <div class="mb-3 col-6">
+                                            <label class="form-label">Role</label>
+                                            <select class="form-select" name="role">
+                                                <% roles.forEach(role => { %>
+                                                    <option value="<%= role.id %>"><%= role.name %></option>
+                                                <% }) %>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="formFile" class="form-label">Avatar</label>
+                                        <input class="form-control" type="file" id="formFile">
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label">Address:</label>
