@@ -10,7 +10,7 @@ const webRoutes = (app: Express)=>{
   router.get('/', getHomePage);
   
   
-  router.post('/handle-update-user', postUpdateUser);
+  
   
   //adim page
   router.get('/admin', getDashboardPage);
@@ -21,6 +21,7 @@ const webRoutes = (app: Express)=>{
   router.post('/admin/handle-create-user', fileUploadMiddleware('avatar'), postCreateUser);
   router.post('/admin/delete-user/:id', postDeleteUser);
   router.get('/admin/view-user/:id', getViewUser);
+  router.post('/admin/update-user', fileUploadMiddleware('avatar'), postUpdateUser);
   router.get('/abc', (req, res) => {
     res.send('Hello World ABC!');
   });

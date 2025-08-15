@@ -49,15 +49,15 @@ const getUserById = async (userId: string) => {
     return user;
 }
 
-const handleUpdateUser = async (userId: string, fullName: string, email: string, address: string) => {
+const handleUpdateUser = async (userId: string, fullName: string, phone: string, role: string, address: string, avatar: string) => {
     const updatedUser = await prisma.user.update({
         where: { id: +userId },
         data: {
             fullName: fullName,
-            username: email,
+            phone: phone,
+            roleId: +role, // Assuming role is a string that can be converted to a number
             address: address,
-            password:"",
-            accountType:"",
+            ...(avatar !== undefined && { avatar: avatar })
         }
     });
     return updatedUser;
