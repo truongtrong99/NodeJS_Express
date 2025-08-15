@@ -1,6 +1,9 @@
 import express, {Express} from 'express';
 import { getCreateUserPage, getHomePage, getViewUser, postCreateUser, postDeleteUser, postUpdateUser } from 'controllers/user.controller';
 import { getAdminOrderPage, getAdminProductPage, getAdminUserPage, getDashboardPage } from 'controllers/admin/dashboard.controller';
+import fileUploadMiddleware from 'src/middleware/multer';
+
+
 const router = express.Router()
 
 const webRoutes = (app: Express)=>{
@@ -15,7 +18,7 @@ const webRoutes = (app: Express)=>{
   router.get('/admin/product', getAdminProductPage);
   router.get('/admin/order', getAdminOrderPage);
   router.get('/admin/create-user', getCreateUserPage);
-  router.post('/admin/handle-create-user', postCreateUser);
+  router.post('/admin/handle-create-user', fileUploadMiddleware('avatar'), postCreateUser);
 
   router.get('/abc', (req, res) => {
     res.send('Hello World ABC!');
