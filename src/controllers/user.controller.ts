@@ -24,7 +24,7 @@ const postCreateUser = async (req: Request, res: Response) => {
 const postDeleteUser = async (req: Request, res: Response) => {
     const {id} = req.params;
     const response = await handleDeleteUser(id);
-    return res.redirect('/');
+    return res.redirect('/admin/user');
 }
 
 const getViewUser = async (req: Request, res: Response) => {
@@ -32,7 +32,8 @@ const getViewUser = async (req: Request, res: Response) => {
     // Here you would typically fetch the user details from the database
     // For now, we will just send a placeholder response
     const user = await getUserById(id);
-    res.render('view-user', { user: user, id: id });
+    const roles = await getAllRoles();
+    res.render('admin/user/detail.ejs', { user: user, id: id, roles: roles });
 }
 
 const postUpdateUser = async (req: Request, res: Response) => {
