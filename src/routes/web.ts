@@ -2,17 +2,17 @@ import express, {Express} from 'express';
 import { getCreateUserPage, getHomePage, getViewUser, postCreateUser, postDeleteUser, postUpdateUser } from 'controllers/user.controller';
 import { getAdminOrderPage, getAdminProductPage, getAdminUserPage, getDashboardPage } from 'controllers/admin/dashboard.controller';
 import fileUploadMiddleware from 'src/middleware/multer';
+import { getProductPage } from 'controllers/client/product.controller';
 
 
 const router = express.Router()
 
 const webRoutes = (app: Express)=>{
   router.get('/', getHomePage);
-  
-  
-  
-  
-  //adim page
+  //client page
+  router.get('/product/:id', getProductPage);
+
+  //admin page
   router.get('/admin', getDashboardPage);
   router.get('/admin/user', getAdminUserPage);
   router.get('/admin/product', getAdminProductPage);
