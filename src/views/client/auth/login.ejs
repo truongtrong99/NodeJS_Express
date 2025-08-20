@@ -36,11 +36,12 @@
                 <div class="col-lg-6">
                     <div class="bg-light rounded p-4 p-sm-5">
                         <h3 class="text-center mb-4">Sign In</h3>
-                        <% if(locals.errorMessage) { %>
-                        <div class="alert alert-danger" role="alert">
-                            <%= errorMessage %>
-                        </div>
-                        <% } %>
+                         <% messages.forEach(function(message) { %>
+                            <div class="alert alert-danger mb-3">
+                                    <%= message %>
+                            </div>
+                        <% }) %>
+
                         <form action="/login" method="POST">
                             <div class="form-floating mb-4">
                                 <input name="username"  type="email" class="form-control" id="email"placeholder="name@example.com">
