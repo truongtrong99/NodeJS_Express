@@ -5,6 +5,7 @@ import webRoutes from 'src/routes/web';
 import initDataBase from 'config/seed';
 import passport from 'passport';
 import configPassportLocal from 'src/middleware/passport.local';
+import session from 'express-session';
 const app = express();
 const port = process.env.PORT || 8080; // Use PORT from .env or default to 3000
 //config view engine
@@ -18,6 +19,12 @@ app.use(express.urlencoded({ extended: true }));
 ///config static files
 app.use(express.static('public'));
 
+///Config session
+app.use(session({
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: true
+}))
 //config passport
 app.use(passport.initialize());
 configPassportLocal()
