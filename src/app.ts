@@ -40,7 +40,15 @@ app.use(session({
 }))
 //config passport
 app.use(passport.initialize());
+
+app.use(passport.authenticate('session'));
 configPassportLocal()
+
+//config global
+app.use((req, res, next) => {
+    res.locals.user = req.user || null;
+    next();
+});
 
 webRoutes(app);
 
