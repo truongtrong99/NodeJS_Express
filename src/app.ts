@@ -55,6 +55,10 @@ webRoutes(app);
 
 //seeding data
 initDataBase();
+// Handle 404 errors
+app.use((req, res) => {
+  res.status(404).render('status/404');
+});
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
   console.log("check env port: ", process.env.PORT);
