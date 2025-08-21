@@ -23,7 +23,7 @@ const configPassportLocal = () => {
         // throw new Error(`Invalid password for username: ${username}`);
         return callback(null, false, { message: `Username/Password incorrect` });
     }
-    return callback(null, user);
+    return callback(null, user as any);
   }));
 
   passport.serializeUser(function(user:any, callback) {
